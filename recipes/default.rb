@@ -16,3 +16,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+
+include_recipe 'apt'
+
+package "ejabberd"
+
+service "ejabberd" do
+  action :enable
+end
