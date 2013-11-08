@@ -12,6 +12,10 @@ platforms:
   driver_config:
     box: opscode-ubuntu-10.04
     box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_ubuntu-10.04_provisionerless.box
+- name: debian-7.1
+  driver_config:
+    box: debian
+    box_url: https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_debian-7.1.0_provisionerless.box
 - name: centos-6.4
   driver_config:
     box: opscode-centos-6.4

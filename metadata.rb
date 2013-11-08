@@ -10,5 +10,5 @@ recipe "ejabberd", "Install ejabberd and configure"
 
 depends 'apt', '~> 2.2'
 
-supports "debian", ">= 6.0"
+supports "debian", ">= 7.1"
 supports "ubuntu", ">= 10.04"
