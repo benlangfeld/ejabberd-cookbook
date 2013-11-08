@@ -9,6 +9,10 @@ version          '0.1.0'
 recipe 'ejabberd', 'Install ejabberd and configure'
 
 depends 'apt', '~> 2.2'
+depends 'yum', '~> 2.4'
 
 supports 'debian', '>= 7.1'
 supports 'ubuntu', '>= 10.04'
+%w{ redhat centos scientific amazon }.each do |os|
+  supports os, '>= 5.9'
+end
