@@ -4,7 +4,7 @@ This Chef cookbook installs ejabberd from operating system packages and configur
 
 # Requirements
 
-Tested on Ubuntu 10.04 / 12.04, Debian 7.1 and CentOS 5.9 / 6.4.
+Tested on Ubuntu 10.04 / 12.04, Debian 7.1 and CentOS 6.4.
 
 # Usage
 
