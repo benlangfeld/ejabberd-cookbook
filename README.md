@@ -12,6 +12,8 @@ Add `recipe[ejabberd]` to your node's run list
 
 # Attributes
 
+* `node['ejabberd']['jabber_domain']` - the domain on which to serve XMPP connections (default `localhost`)
+
 # Recipes
 
 * `ejabberd` - Fetches and installs ejabberd

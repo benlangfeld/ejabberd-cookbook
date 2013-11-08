@@ -18,4 +18,8 @@ describe 'ejabberd' do
   describe port(5222) do
     it { should be_listening.with('tcp') }
   end
+
+  describe file('/etc/ejabberd/ejabberd.cfg') do
+    it { should contain '{hosts, ["testkitchen.example.com"]}.' }
+  end
 end

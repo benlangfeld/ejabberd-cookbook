@@ -24,3 +24,11 @@ package "ejabberd"
 service "ejabberd" do
   action :enable
 end
+
+template "/etc/ejabberd/ejabberd.cfg" do
+  source "ejabberd.cfg.erb"
+  group 'ejabberd'
+  mode '755'
+  variables :jabber_domain => node['ejabberd']['jabber_domain']
+  notifies :restart, resources(:service => "ejabberd"), :immediately
+end

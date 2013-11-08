@@ -28,4 +28,8 @@ platforms:
 suites:
 - name: default
   run_list: ["recipe[ejabberd]"]
-  attributes: {}
+  attributes: {
+    'ejabberd': {
+      'jabber_domain': 'testkitchen.example.com'
+    }
+  }
