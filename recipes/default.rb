@@ -17,7 +17,10 @@
 # limitations under the License.
 #
 
-include_recipe 'apt'
+case node['platform']
+when 'ubuntu', 'debian'
+  include_recipe 'apt'
+end
 
 package "ejabberd"
 
