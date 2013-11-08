@@ -12,7 +12,7 @@ describe 'ejabberd' do
   end
 
   describe command('sudo ejabberdctl status') do
-    it { should return_stdout /ejabberd 2\.1\.\d* is running in that node/ }
+    it { should return_stdout /ejabberd 2\.\d*\.\d* is running in that node/ }
   end
 
   describe port(5222) do

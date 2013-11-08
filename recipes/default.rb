@@ -20,6 +20,8 @@
 case node['platform']
 when 'ubuntu', 'debian'
   include_recipe 'apt'
+when 'centos', 'redhat', 'amazon', 'scientific'
+  include_recipe 'yum::epel'
 end
 
 package "ejabberd"
@@ -33,5 +35,5 @@ template "/etc/ejabberd/ejabberd.cfg" do
   group 'ejabberd'
   mode '755'
   variables :jabber_domain => node['ejabberd']['jabber_domain']
-  notifies :restart, resources(:service => "ejabberd"), :immediately
+  notifies :restart, resources('service[ejabberd]'), :immediately
 end
