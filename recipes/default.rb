@@ -35,5 +35,5 @@ template "/etc/ejabberd/ejabberd.cfg" do
   group 'ejabberd'
   mode '755'
   variables :jabber_domain => node['ejabberd']['jabber_domain']
-  notifies :restart, resources('service[ejabberd]'), :immediately
+  notifies :restart, resources('service[ejabberd]')
 end
