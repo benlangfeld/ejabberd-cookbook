@@ -12,7 +12,7 @@ Add `recipe[ejabberd]` to your node's run list
 
 # Attributes
 
-* `node['ejabberd']['jabber_domain']` - the domain on which to serve XMPP connections (default `localhost`)
+* `node['ejabberd']['jabber_domain']` - the domain on which to serve XMPP connections (default `node['fqdn']`)
 
 # Recipes
 
