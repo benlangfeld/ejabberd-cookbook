@@ -9,7 +9,7 @@ version          '0.2.0'
 recipe 'ejabberd', 'Install ejabberd and configure'
 
 depends 'apt', '~> 2.2'
-depends 'yum', '~> 2.4'
+depends 'yum-epel'
 
 supports 'debian', '>= 7.1'
 supports 'ubuntu', '>= 10.04'
