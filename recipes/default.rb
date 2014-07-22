@@ -21,7 +21,7 @@ case node['platform']
 when 'ubuntu', 'debian'
   include_recipe 'apt'
 when 'centos', 'redhat', 'amazon', 'scientific'
-  include_recipe 'yum::epel'
+  include_recipe 'yum-epel::default'
 end
 
 package "ejabberd"
