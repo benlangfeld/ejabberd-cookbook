@@ -1,4 +1,5 @@
 # develop
+  * Switch out yum dependency for more flexible and up-to-date yum-epel.
 
 # 0.2.0
   * Default domain to the FQDN of the system. This is more consistent with other cookbooks defaults.
