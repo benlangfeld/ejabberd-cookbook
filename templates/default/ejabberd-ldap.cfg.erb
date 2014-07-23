@@ -279,7 +279,7 @@
 %% If you want to use a different method,
 %% comment this line and enable the correct ones.
 %%
-{auth_method, internal}.
+%%{auth_method, internal}.
 
 %%
 %% Authentication using external script
@@ -299,6 +299,52 @@
 %%
 %%{auth_method, pam}.
 %%{pam_service, "pamservicename"}.
+
+%%
+%% Authentication using LDAP
+%%
+{auth_method, 'ldap'}.
+%%
+%% List of LDAP servers:
+{ldap_servers, ["<%= @ldap_servers %>"]}.
+%%
+%% Encryption of connection to LDAP servers (LDAPS):
+{ldap_encrypt, <%= @ldap_encrypt %>}.
+%%{ldap_encrypt, tls}.
+%%
+%% Port connect to LDAP server:
+{ldap_port, <%= @ldap_port %>}.
+%%{ldap_port, 636}.
+%%
+%% LDAP manager:
+{ldap_rootdn, "<%= @ldap_rootdn %>"}.
+%%
+%% Password to LDAP manager:
+{ldap_password, "<%= @ldap_password %>"}.
+%%
+%% Search base of LDAP directory:
+{ldap_base, "<%= @ldap_base %>"}.
+%%
+%% LDAP attribute that holds user ID:
+{ldap_uids, [{<%= @ldap_uids %>}]}.
+%%
+%% LDAP filter:
+%%{ldap_filter, "(objectClass=inetOrgPerson)"}.
+
+%%
+%% Anonymous login support:
+%%   auth_method: anonymous
+%%   anonymous_protocol: sasl_anon | login_anon | both
+%%   allow_multiple_connections: true | false
+%%
+%%{host_config, "public.example.org", [{auth_method, anonymous},
+%%                                     {allow_multiple_connections, false},
+%%                                     {anonymous_protocol, sasl_anon}]}.
+%%
+%% To use both anonymous and internal authentication:
+%%
+%%{host_config, "public.example.org", [{auth_method, [internal, anonymous]}]}.
+
 
 %%%   ==============
 %%%   DATABASE SETUP
