@@ -30,10 +30,31 @@ service "ejabberd" do
   action :enable
 end
 
-template "/etc/ejabberd/ejabberd.cfg" do
-  source "ejabberd.cfg.erb"
-  group 'ejabberd'
-  mode '755'
-  variables :jabber_domain => node['ejabberd']['jabber_domain']
-  notifies :restart, resources('service[ejabberd]')
+if node['ejabberd']['auth_method'] == 'ldap'
+  template "/etc/ejabberd/ejabberd.cfg" do
+    source "ejabberd-ldap.cfg.erb"
+    group 'ejabberd'
+    mode '755'
+    variables(
+      :jabber_domain => node['ejabberd']['jabber_domain'],
+      :ldap_servers => node['ejabberd']['ldap']['ldap_servers'],
+      :ldap_encrypt => node['ejabberd']['ldap']['ldap_encrypt'],
+      :ldap_port => node['ejabberd']['ldap']['ldap_port'],
+      :ldap_rootdn => node['ejabberd']['ldap']['ldap_rootdn'],
+      :ldap_password => node['ejabberd']['ldap']['ldap_password'],
+      :ldap_base => node['ejabberd']['ldap']['ldap_base'],
+      :ldap_uids => node['ejabberd']['ldap']['ldap_uids']
+    )
+    notifies :restart, resources('service[ejabberd]')
+  end
+else
+  template "/etc/ejabberd/ejabberd.cfg" do
+    source "ejabberd.cfg.erb"
+    group 'ejabberd'
+    mode '755'
+    variables(
+      :jabber_domain => node['ejabberd']['jabber_domain'],
+    )
+    notifies :restart, resources('service[ejabberd]')
+  end
 end
